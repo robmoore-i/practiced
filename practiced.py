@@ -21,7 +21,7 @@ def generate_prompt():
     return subprocess.getoutput("./" + content_generator_script)
 
 def harass():
-    text_input_prompt = generate_prompt()
+    text_input_prompt = generate_prompt().replace("\"", "'")
     subprocess.check_call(
         "./" + harassment_script_name + " \"" + popup_title + "\" \"" + text_input_prompt + "\"",
         shell=True
