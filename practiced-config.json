@@ -1,0 +1,6 @@
+{
+  "content-generator": "linux/generate-content.py",
+  "time-minutes-between-harassments": 1,
+  "shut-up-after-how-many-minutes": false,
+  "option-to-tell-it-to-shut-up": false
+}
