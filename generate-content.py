@@ -1,4 +1,4 @@
-### Content Generator is an executable script which upon being executed, prints a string to stdout.
+#!/usr/bin/python3
 
 print("This is a prompt")
 

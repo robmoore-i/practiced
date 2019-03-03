@@ -16,10 +16,13 @@ interval_time_minutes = config["time-minutes-between-harassments"]
 interval_time_seconds = min(60 * interval_time_minutes, 5)
 harassment_script_name = config["harassment-script"]
 popup_title = config["popup-title"]
+content_generator_script = config["content-generator"]
 
-text_input_prompt = "Type stuff"
+def generate_prompt():
+    return subprocess.getoutput("./" + content_generator_script)
 
 def harass():
+    text_input_prompt = generate_prompt()
     subprocess.check_call(
         "./" + harassment_script_name + " \"" + popup_title + "\" \"" + text_input_prompt + "\"",
         shell=True
