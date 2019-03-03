@@ -2,10 +2,19 @@
 
 import random
 
-transient_verbs = ["help", "give", "eat", "drink", "buy", "add"]
+transient_verbs = {
+    "help": "ეხმარებ",
+    "eat": "ჭან",
+    "drink": "სვამ",
+    "buy": "ყიდულობ",
+    "add": "ამატებ",
+    "build": "აშენებ",
+    "work": "მუშაობ",
+    "write": "დაწერა"
+}
 
 def translate_prompt():
-    return "Translate \"" + random.choice(transient_verbs) + "\""
+    return "What is the neutral form of \"" + random.choice(list(transient_verbs.keys())) + "\"?"
 
 print(translate_prompt())
 
