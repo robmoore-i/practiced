@@ -7,8 +7,10 @@ Configure this tool to periodically harass you with the aim of practicing stuff.
 First you need to configure the tool. With that in mind, here's how you use it once configured.
 
 ```
-./practiced.sh <practiced config file>
+python3 practiced.py <practiced config file>
 ```
+
+You don't need any libraries.
 
 ## Configuration
 
