@@ -10,7 +10,8 @@ transient_verbs = {
     "add": "ამატებ",
     "build": "აშენებ",
     "work": "მუშაობ",
-    "write": "დაწერა"
+    "write": "წერ",
+    "see": "ხედავ"
 }
 
 def translate_prompt():
