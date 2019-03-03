@@ -1,4 +1,5 @@
 {
+  "popup-title": "Practice Time!",
   "content-generator": "generate-content.py",
   "time-minutes-between-harassments": 1,
   "shut-up-after-how-many-minutes": false,

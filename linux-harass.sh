@@ -1,3 +1,4 @@
+#!/bin/bash
 if [[ $# -ne 2 ]]
 then
   echo "USAGE: $0 <popup title> <text input prompt>"
