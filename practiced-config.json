@@ -1,8 +1,6 @@
 {
-  "popup-title": "Practice Time!",
-  "prompt-generator": "generate-prompt.py",
   "harassment-script": "linux-harass.sh",
-  "time-seconds-between-harassments": 5,
-  "shut-up-after-how-many-minutes": false,
-  "option-to-tell-it-to-shut-up": false
+  "prompt-generator": "generate-prompt.py",
+  "popup-title": "Practice Time!",
+  "time-seconds-between-harassments": 5
 }

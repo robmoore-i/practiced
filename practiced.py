@@ -1,8 +1,10 @@
 import subprocess
 import time
 import json
+import sys
 
-config_filename = 'practiced-config.json'
+config_filename = sys.argv[1]
+
 config = {}
 
 with open(config_filename) as config_file:
@@ -12,10 +14,10 @@ if len(config.values()) == 0:
     print("Config not found. Tried \"" + config_filename + "\".")
     exit(1)
 
-interval_time_seconds    = config["time-seconds-between-harassments"]
-harassment_script_name   = config["harassment-script"]
-popup_title              = config["popup-title"]
-content_generator_script = config["prompt-generator"]
+interval_time_seconds    = int(config["time-seconds-between-harassments"])
+harassment_script_name   = str(config["harassment-script"])
+popup_title              = str(config["popup-title"])
+content_generator_script = str(config["prompt-generator"])
 
 def generate_prompt():
     return subprocess.getoutput("./" + content_generator_script)

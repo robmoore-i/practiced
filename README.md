@@ -2,36 +2,66 @@
 
 Configure this tool to periodically harass you with the aim of practicing stuff.
 
-## Problem
+## Usage
 
-I want a program that will poke me to do practice periodically while I am on my computer.
-
-## Solution
-
-I want to configure the thing with a static list of phrases to poke me with. If I do this, I want to control
-the ordering, or choose it to be random.
-
-I might want to configure the thing with a function to generate phrases to poke me with.
-
-## Desired usage
-
-I want to run
+First you need to configure the tool. With that in mind, here's how you use it once configured.
 
 ```
-./practiced.sh practiced-config.json
+./practiced.sh <practiced config file>
 ```
 
-And that should start the process and begin harassing me. The first harassment should be immediate because I
-want instant feedback that the thing did the thing right.
+## Configuration
 
-I foresee that I'd also like to be able to shut the thing up at any time, but that I would like that button's
-presence to be configurable.
+There are optional parameters and required ones. The format is json. An example configuration with all of the options is in the repository. It's called `practiced-config.json`.
 
-## Desired configuration options
+### Required configuration parameters
 
-I want to control
+For `practiced` to do its job, it really just needs two things:
 
-- The content of the harassments
-- The time between harassments
-- Optionally, a time after which the thing just shuts up
-- A flag to indicate if I want the option to shut the thing up when it harasses me
+- A way of harassing you
+- Guidance on what to harass you with
+
+To achieve this, you must put in the config two scripts.
+
+```
+{
+    ...
+    "harassment-script": "<executable script>",
+    "prompt-generator": "<executable script>",
+    ...
+}
+```
+
+#### Harassment script
+
+This script is periodically executed. It ought to pop something up on your screen. It must conform to the usage:
+
+```
+USAGE: ./harassment-script <popup title> <text input prompt>
+```
+
+#### Prompt Generator
+
+This script must print a single line to stdout, which is the text input prompt for the harassments. What is the computer reminding you to practice? Type something! This script's job is to print the prompt to stdout.
+
+### Defaulted configuration parameters
+
+`practiced` can be configured in some ways:
+
+- What is the title for the popups?
+- How frequent should the harassments be?
+
+For these, two configuration parameters can be used:
+
+```
+{
+    "popup-title": "<title>",
+    "time-seconds-between-harassments": <a number greater than 0>
+}
+```
+
+#### Default values
+
+`popup-title` defaults to "Practice Time!"
+
+`time-seconds-between-harassments` defaults to 300
