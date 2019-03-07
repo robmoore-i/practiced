@@ -33,7 +33,7 @@ BUILD = Verb("build", "აშენებ")
 READ = Verb("read", "კითხულობ")
 
 def random_verb():
-    return random.choice([WRITE, BUILD])
+    return random.choice([WRITE, BUILD, READ])
 
 def conjugate_to_be_en(person):
     if person == person_marker.I:
