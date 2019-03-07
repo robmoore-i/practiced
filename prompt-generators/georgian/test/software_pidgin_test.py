@@ -32,7 +32,13 @@ def assert_translation_for_present_building_of_code(person, en, ge):
 
 def assert_translations_for_present_building_of_code():
     inputs = [
-        (person_marker.I, "I build code", "ვაშენებ კოდს")
+        (person_marker.I, "I build code", "ვაშენებ კოდს"),
+        (person_marker.YOU, "You build code", "აშენებ კოდს"),
+        (person_marker.SHE, "She builds code", "აშენებს კოდს"),
+        (person_marker.HE, "He builds code", "აშენებს კოდს"),
+        (person_marker.WE, "We build code", "ვაშენებთ კოდს"),
+        (person_marker.YOUS, "You build code", "აშენებთ კოდს"),
+        (person_marker.THEY, "They build code", "აშენებენ კოდს")
     ]
 
     for (person, en, ge) in inputs:
