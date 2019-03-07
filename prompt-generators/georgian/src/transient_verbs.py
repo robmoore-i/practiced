@@ -29,7 +29,7 @@ def translate_prompt_transient_verb_en_ge():
         "answer": transient_verbs[verb]
     }
 
-transient_verb_generated_prompts = [
-    translate_prompt_transient_verb_ge_en(),
-    translate_prompt_transient_verb_en_ge()
+transient_verb_prompt_generators = [
+    translate_prompt_transient_verb_ge_en,
+    translate_prompt_transient_verb_en_ge
 ]
