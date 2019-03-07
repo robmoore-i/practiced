@@ -26,8 +26,7 @@ def generate_prompt():
     return subprocess.getoutput("./" + content_generator_script)
 
 def harass():
-    generate_prompt_output = generate_prompt()
-    prompt = json.loads(generate_prompt_output)
+    prompt = json.loads(generate_prompt())
     text_input_prompt = prompt["prompt"]
     answer = prompt["answer"]
 
