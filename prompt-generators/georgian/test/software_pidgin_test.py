@@ -1,15 +1,19 @@
 from assertpy import assert_that
 
+from tick import print_test_success
 import person_marker
 import screeve
 import verb
 import noun
 from software_pidgin import translate_prompt_en_ge
 
+print(__file__)
+
 def assert_translation_for_present_programming(verb, person, en, ge):
     prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb, noun.CODE)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
     assert_that(prompt["answer"]).is_equal_to(ge)
+    print_test_success("[" + person.en + "]\t[" + verb.en_root + "]\t[code]\t")
 
 def assert_translations_for_present_writing_of_code():
     inputs = [
@@ -41,5 +45,3 @@ def assert_translations_for_present_building_of_code():
 
 assert_translations_for_present_writing_of_code()
 assert_translations_for_present_building_of_code()
-
-print(__file__ + " ✔️")
