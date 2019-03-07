@@ -1,3 +1,5 @@
+##### Code #####
+
 import subprocess
 import time
 import json
@@ -16,6 +18,7 @@ if len(config.values()) == 0:
 
 interval_time_seconds    = int(config["time-seconds-between-harassments"])
 harassment_script_name   = str(config["harassment-script"])
+notification_script_name = str(config["notification-script"])
 popup_title              = str(config["popup-title"])
 content_generator_script = str(config["prompt-generator"])
 
@@ -32,6 +35,17 @@ def harass():
         "./" + harassment_script_name + " \"" + popup_title + "\" \"" + text_input_prompt + "\"",
         shell=True
     )
+    
+    subprocess.check_call(
+        "./" + notification_script_name + " \"" + answer + "\"",
+        shell=True
+    )
+
+##### Tests #####
+
+# lmao
+
+##### Execute #####
 
 while(True):
     harass()
