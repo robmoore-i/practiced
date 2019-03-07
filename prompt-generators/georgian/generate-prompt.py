@@ -3,41 +3,10 @@
 ##### Code #####
 
 import random
-
-transient_verbs = {
-    "help": "ეხმარებ",
-    "eat": "ჭან",
-    "drink": "სვამ",
-    "buy": "ყიდულობ",
-    "add": "ამატებ",
-    "build": "აშენებ",
-    "work": "მუშაობ",
-    "write": "წერ",
-    "see": "ხედავ"
-}
-
-def random_verb():
-    return random.choice(list(transient_verbs.keys()))
-
-def translate_prompt_transient_verb_ge_en():
-    verb = random_verb()
-    return {
-        "prompt": "What is the english for \"" + transient_verbs[verb] + "\"?",
-        "answer": verb
-    }
-
-def translate_prompt_transient_verb_en_ge():
-    verb = random_verb()
-    return {
-        "prompt": "What is the georgian neutral form for \"" + verb + "\"?",
-        "answer": transient_verbs[verb]
-    }
+from transient_verbs import transient_verb_generated_prompts, transient_verbs
 
 def translate_prompt():
-    potential_prompts = [
-        translate_prompt_transient_verb_ge_en(),
-        translate_prompt_transient_verb_en_ge()
-    ]
+    potential_prompts = transient_verb_generated_prompts
     return random.choice(potential_prompts)
 
 prompt = translate_prompt()
