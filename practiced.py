@@ -1,5 +1,3 @@
-##### Code #####
-
 import subprocess
 import time
 import json
@@ -39,12 +37,6 @@ def harass():
         "./" + notification_script_name + " \"" + answer + "\"",
         shell=True
     )
-
-##### Tests #####
-
-# lmao
-
-##### Execute #####
 
 while(True):
     harass()
