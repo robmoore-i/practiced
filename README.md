@@ -14,56 +14,14 @@ You don't need any libraries.
 
 ## Configuration
 
-There are optional parameters and required ones. The format is json. An example configuration with all of the options is in the repository. It's called `practiced-config.json`.
+Two configurations are in the repository. They are the json files. You'll want to change the `prompt-generator` entry.
 
-### Required configuration parameters
+## Prompt Generator
 
-For `practiced` to do its job, it really just needs two things:
-
-- A way of harassing you
-- Guidance on what to harass you with
-
-To achieve this, you must put in the config two scripts.
+An _executable script_ (including correct shebang line) which _prints to stdout_ a _string of json_ with two fields: `prompt` and `answer`. For example:
 
 ```
-{
-    ...
-    "harassment-script": "<executable script>",
-    "prompt-generator": "<executable script>",
-    ...
-}
+Rob-Computer:practiced rob$ ./generate-prompt.py 
+{"prompt": "What is the english for \"აშენებ\"?", "answer": "build"}
+Rob-Computer:practiced rob$
 ```
-
-#### Harassment script
-
-This script is periodically executed. It ought to pop something up on your screen. It must conform to the usage:
-
-```
-USAGE: ./harassment-script <popup title> <text input prompt>
-```
-
-#### Prompt Generator
-
-This script must print a single line to stdout, which is the text input prompt for the harassments. What is the computer reminding you to practice? Type something! This script's job is to print the prompt to stdout.
-
-### Defaulted configuration parameters
-
-`practiced` can be configured in some ways:
-
-- What is the title for the popups?
-- How frequent should the harassments be?
-
-For these, two configuration parameters can be used:
-
-```
-{
-    "popup-title": "<title>",
-    "time-seconds-between-harassments": <a number greater than 0>
-}
-```
-
-#### Default values
-
-`popup-title` defaults to "Practice Time!"
-
-`time-seconds-between-harassments` defaults to 300
