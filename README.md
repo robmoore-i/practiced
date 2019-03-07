@@ -4,7 +4,7 @@ Configure this tool to periodically harass you with the aim of practicing stuff.
 
 ## Usage
 
-First you need to configure the tool. With that in mind, here's how you use it once configured.
+Run the below command:
 
 ```
 python3 practiced.py <practiced config file>
@@ -37,3 +37,7 @@ Rob-Computer:practiced rob$ ./prompt-generators/georgian/src/print_prompt.py
 {"prompt": "What is the english for \"აშენებ\"?", "answer": "build"}
 Rob-Computer:practiced rob$
 ```
+
+## Writing a prompt generator
+
+With the specification above in mind, I have a couple of python examples. One for Georgian language, another for the lengths of the different months of the year. These live in `prompt-generators/`. To create a simple given->answer mapping, basically just copy the one for month-lengths and add everything you want into the dictionary.
