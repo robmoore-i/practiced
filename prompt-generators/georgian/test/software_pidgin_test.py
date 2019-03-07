@@ -6,8 +6,8 @@ import verb
 import noun
 from software_pidgin import translate_prompt_en_ge
 
-def assert_translation_for_present_writing_of_code(person, en, ge):
-    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb.WRITE, noun.CODE)
+def assert_translation_for_present_programming(verb, person, en, ge):
+    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb, noun.CODE)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
     assert_that(prompt["answer"]).is_equal_to(ge)
 
@@ -23,12 +23,7 @@ def assert_translations_for_present_writing_of_code():
     ]
 
     for (person, en, ge) in inputs:
-        assert_translation_for_present_writing_of_code(person, en, ge)
-
-def assert_translation_for_present_building_of_code(person, en, ge):
-    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb.BUILD, noun.CODE)
-    assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
-    assert_that(prompt["answer"]).is_equal_to(ge)
+        assert_translation_for_present_programming(verb.WRITE, person, en, ge)
 
 def assert_translations_for_present_building_of_code():
     inputs = [
@@ -42,7 +37,7 @@ def assert_translations_for_present_building_of_code():
     ]
 
     for (person, en, ge) in inputs:
-        assert_translation_for_present_building_of_code(person, en, ge)
+        assert_translation_for_present_programming(verb.BUILD, person, en, ge)
 
 assert_translations_for_present_writing_of_code()
 assert_translations_for_present_building_of_code()
