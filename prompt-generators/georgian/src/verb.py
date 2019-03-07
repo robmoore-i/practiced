@@ -11,5 +11,13 @@ class Verb:
             return "write"
         else:
             return "writes"
+    
+    def conjugate_ge(self, person):
+        if person == person_markers.I:
+            return "ვწერ"
+        elif person == person_markers.YOU:
+            return "წერ"
+        else:
+            return "წერს"
 
 WRITE = Verb()
