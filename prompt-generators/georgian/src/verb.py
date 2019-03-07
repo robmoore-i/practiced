@@ -5,10 +5,10 @@ class Verb:
         pass
     
     def conjugate_en(self, person):
-        if person == person_marker.I or person == person_marker.YOU or person == person_marker.WE or person == person_marker.YOUS:
-            return "write"
-        else:
+        if person == person_marker.SHE or person == person_marker.HE:
             return "writes"
+        else:
+            return "write"
     
     def conjugate_ge(self, person):
         if person == person_marker.I:
