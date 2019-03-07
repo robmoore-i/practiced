@@ -2,15 +2,14 @@ import random
 import person_marker
 
 class Verb:
-    def __init__(self, en_root, ge_neutral, present_continuous=False):
+    def __init__(self, en_root, ge_neutral):
         self.en_root = en_root
         self.ge_neutral = ge_neutral
-        self.present_continuous = present_continuous
     
-    def conjugate_en(self, person):
+    def conjugate_en(self, person, present_continuous=False):
         if person == person_marker.SHE or person == person_marker.HE:
             return self.en_root + "s"
-        elif self.present_continuous:
+        elif present_continuous:
             return en_to_be(person) + " " + self.en_root + "ing"
         else:
             return self.en_root
@@ -31,7 +30,7 @@ class Verb:
 
 WRITE = Verb("write", "წერ")
 BUILD = Verb("build", "აშენებ")
-READ = Verb("read", "კითხულობ", True)
+READ = Verb("read", "კითხულობ")
 
 def random_verb():
     return random.choice([WRITE, BUILD])

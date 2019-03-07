@@ -2,7 +2,7 @@ from assertpy import assert_that
 
 from tick import print_test_success
 import person_marker
-import screeve
+import screeve_form
 import verb
 import noun
 from software_pidgin import translate_prompt_en_ge
@@ -10,7 +10,7 @@ from software_pidgin import translate_prompt_en_ge
 print(__file__)
 
 def assert_translation_for_present_programming(verb, person, en, ge):
-    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb, noun.CODE)
+    prompt = translate_prompt_en_ge(person, screeve_form.PRESENT, verb, noun.CODE)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
     assert_that(prompt["answer"]).is_equal_to(ge)
     print_test_success("[" + person.en + "]\t[" + verb.en_root + "]\t[code]\t")
@@ -44,7 +44,7 @@ def assert_translations_for_present_building_of_code():
         assert_translation_for_present_programming(verb.BUILD, person, en, ge)
 
 def assert_translation_for_present_reading(person, noun, en, ge):
-    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb.READ, noun)
+    prompt = translate_prompt_en_ge(person, screeve_form.PRESENT_CONTINUOUS, verb.READ, noun)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
     assert_that(prompt["answer"]).is_equal_to(ge)
     print_test_success("[" + person.en + "]\t[read]\t[" + noun.en + "]\t")
