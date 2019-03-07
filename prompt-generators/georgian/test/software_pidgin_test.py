@@ -22,8 +22,14 @@ def assert_generates_she_writes_code():
     assert_that(prompt["answer"]).is_equal_to("წერს კოდი")
 
 
+def assert_generates_he_writes_code():
+    prompt = translate_prompt_en_ge(person.HE, screeve.PRESENT, verb.WRITE, noun.CODE)
+    assert_that(prompt["prompt"]).is_equal_to("Translate \"He writes code\"")
+    assert_that(prompt["answer"]).is_equal_to("წერს კოდი")
+
 assert_generates_I_write_code()
 assert_generates_you_write_code()
 assert_generates_she_writes_code()
+assert_generates_he_writes_code()
 
 print(__file__ + " ✔️")

@@ -5,3 +5,4 @@ class Person:
 I = Person("I")
 YOU = Person("You")
 SHE = Person("She")
+HE = Person("He")
