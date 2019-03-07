@@ -27,7 +27,7 @@ def generate_prompt():
 
 def harass():
     generate_prompt_output = generate_prompt()
-    prompt = json.loads(generate_prompt_output.replace("\"", "\\\"").replace("'", "\""))
+    prompt = json.loads(generate_prompt_output)
     text_input_prompt = prompt["prompt"]
     answer = prompt["answer"]
 

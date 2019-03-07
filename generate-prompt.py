@@ -38,9 +38,11 @@ def translate_prompt():
     return random.choice(potential_prompts)
 
 prompt = translate_prompt()
+printed_output = str(prompt).replace("\"", "\\\"").replace("'", "\"")
 
 ##### Tests #####
 
+import json
 from assertpy import assert_that
 
 # Check prompt format
@@ -61,7 +63,10 @@ assert_either(
     lambda: assert_that(prompt["prompt"]).contains(invert_map(transient_verbs)[prompt["answer"]])
 )
 
+# Check printed version can be read immediately into json
+assert_that(json.loads(printed_output)).is_equal_to(prompt)
+
 ##### Execute #####
 
-print(prompt)
+print(printed_output)
 exit(0)
