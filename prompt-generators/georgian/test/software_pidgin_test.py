@@ -25,6 +25,20 @@ def assert_translations_for_present_writing_of_code():
     for (person, en, ge) in inputs:
         assert_translation_for_present_writing_of_code(person, en, ge)
 
+def assert_translation_for_present_building_of_code(person, en, ge):
+    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb.BUILD, noun.CODE)
+    assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
+    assert_that(prompt["answer"]).is_equal_to(ge)
+
+def assert_translations_for_present_building_of_code():
+    inputs = [
+        (person_marker.I, "I build code", "ვაშენებ კოდს")
+    ]
+
+    for (person, en, ge) in inputs:
+        assert_translation_for_present_building_of_code(person, en, ge)
+
 assert_translations_for_present_writing_of_code()
+assert_translations_for_present_building_of_code()
 
 print(__file__ + " ✔️")

@@ -1,27 +1,29 @@
 import person_marker
 
 class Verb:
-    def __init__(self):
-        pass
+    def __init__(self, en_root, ge_neutral):
+        self.en_root = en_root
+        self.ge_neutral = ge_neutral
     
     def conjugate_en(self, person):
         if person == person_marker.SHE or person == person_marker.HE:
-            return "writes"
+            return self.en_root + "s"
         else:
-            return "write"
+            return self.en_root
     
     def conjugate_ge(self, person):
         if person == person_marker.I:
-            return "ვწერ"
+            return "ვ" + self.ge_neutral
         elif person == person_marker.YOU:
-            return "წერ"
+            return self.ge_neutral
         elif person == person_marker.SHE or person == person_marker.HE:
-            return "წერს"
+            return self.ge_neutral + "ს"
         elif person == person_marker.WE:
-            return "ვწერთ"
+            return "ვ" + self.ge_neutral + "თ"
         elif person == person_marker.YOUS:
-            return "წერთ"
+            return self.ge_neutral + "თ"
         else:
-            return "წერენ"
+            return self.ge_neutral + "ენ"
 
-WRITE = Verb()
+WRITE = Verb("write", "წერ")
+BUILD = Verb("build", "აშენებ")
