@@ -23,7 +23,11 @@ def generate_prompt():
     return subprocess.getoutput("./" + content_generator_script)
 
 def harass():
-    text_input_prompt = generate_prompt().replace("\"", "'")
+    generate_prompt_output = generate_prompt()
+    prompt = json.loads(generate_prompt_output.replace("\"", "\\\"").replace("'", "\""))
+    text_input_prompt = prompt["prompt"]
+    answer = prompt["answer"]
+
     subprocess.check_call(
         "./" + harassment_script_name + " \"" + popup_title + "\" \"" + text_input_prompt + "\"",
         shell=True

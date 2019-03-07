@@ -1,5 +1,7 @@
 #!/usr/local/bin/python3
 
+##### Code
+
 import random
 
 transient_verbs = {
@@ -14,15 +16,51 @@ transient_verbs = {
     "see": "ხედავ"
 }
 
-def translate_english_to_georgian():
-    return "What is the neutral form of \"" + random.choice(list(transient_verbs.keys())) + "\"?"
+def random_verb():
+    return random.choice(list(transient_verbs.keys()))
 
-def translate_georgian_to_english():
-    return "What english verb is \"" + random.choice(list(transient_verbs.keys())) + "\" the neutral form of?"
+def translate_prompt_ge_en():
+    verb = random_verb()
+    return {
+        "prompt": "What is the english for \"" + transient_verbs[verb] + "\"?",
+        "answer": verb
+    }
+
+def translate_prompt_en_ge():
+    verb = random_verb()
+    return {
+        "prompt": "What is the georgian neutral form for \"" + verb + "\"?",
+        "answer": transient_verbs[verb]
+    }
 
 def translate_prompt():
-    return translate_english_to_georgian()
+    potential_prompts = [translate_prompt_en_ge(), translate_prompt_ge_en()]
+    return random.choice(potential_prompts)
 
-print(translate_prompt())
+prompt = translate_prompt()
 
+##### Tests
+
+from assertpy import assert_that
+
+assert_that(sorted(list(prompt.keys()))).is_equal_to(["answer", "prompt"])
+
+def invert_map(m):
+    return {v: k for k, v in m.items()}
+
+
+def assert_either(do_assertion_a, do_assertion_b):
+    try:
+        do_assertion_a()
+    except:
+        do_assertion_b()
+
+assert_either(
+    lambda: assert_that(prompt["prompt"]).contains(transient_verbs[prompt["answer"]]),
+    lambda: assert_that(prompt["prompt"]).contains(invert_map(transient_verbs)[prompt["answer"]])
+)
+
+##### Execute
+
+print(prompt)
 exit(0)
