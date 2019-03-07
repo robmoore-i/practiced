@@ -36,3 +36,5 @@ prompt = translate_prompt()
 printed_output = prompt_text(prompt)
 
 test_prompt(printed_output, prompt)
+
+print(__file__ + " ✔️")
