@@ -7,10 +7,10 @@ class Verb:
         self.ge_neutral = ge_neutral
     
     def conjugate_en(self, person, present_continuous=False):
-        if person == person_marker.SHE or person == person_marker.HE:
-            return self.en_root + "s"
-        elif present_continuous:
+        if present_continuous:
             return conjugate_to_be_en(person) + " " + self.en_root + "ing"
+        elif person == person_marker.SHE or person == person_marker.HE:
+            return self.en_root + "s"
         else:
             return self.en_root
     
@@ -38,5 +38,7 @@ def random_verb():
 def conjugate_to_be_en(person):
     if person == person_marker.I:
         return "am"
-    else:
+    elif person == person_marker.YOU:
         return "are"
+    else:
+        return "is"
