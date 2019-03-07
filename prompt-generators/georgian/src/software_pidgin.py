@@ -5,8 +5,8 @@ from verb import random_verb
 
 def translate_prompt_en_ge(person, screeve, verb, noun):
     return {
-        "prompt": "Translate \"" + person.en + " " + verb.conjugate_en(person) + " code\"",
-        "answer": verb.conjugate_ge(person) + " კოდს"
+        "prompt": "Translate \"" + person.en + " " + verb.conjugate_en(person) + " " + noun.en + "\"",
+        "answer": verb.conjugate_ge(person) + " " + noun.accusative_ge()
     }
 
 def translate_prompt_programming():

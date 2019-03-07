@@ -9,7 +9,8 @@ transient_verbs = {
     "build": "აშენებ",
     "work": "მუშაობ",
     "write": "წერ",
-    "see": "ხედავ"
+    "see": "ხედავ",
+    "read": "კითხულობ"
 }
 
 def random_verb():

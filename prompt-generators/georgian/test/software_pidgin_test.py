@@ -43,5 +43,20 @@ def assert_translations_for_present_building_of_code():
     for (person, en, ge) in inputs:
         assert_translation_for_present_programming(verb.BUILD, person, en, ge)
 
+def assert_translation_for_present_reading(person, noun, en, ge):
+    prompt = translate_prompt_en_ge(person, screeve.PRESENT, verb.READ, noun)
+    assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
+    assert_that(prompt["answer"]).is_equal_to(ge)
+    print_test_success("[" + person.en + "]\t[read]\t[" + noun.en + "]\t")
+
+def assert_translations_for_present_reading_a_book():
+    inputs = [
+        (person_marker.I, "I am reading a book", "ვკითხულობ წიგნს")
+    ]
+
+    for (person, en, ge) in inputs:
+        assert_translation_for_present_reading(person, noun.BOOK, en, ge)
+
 assert_translations_for_present_writing_of_code()
 assert_translations_for_present_building_of_code()
+assert_translations_for_present_reading_a_book()
