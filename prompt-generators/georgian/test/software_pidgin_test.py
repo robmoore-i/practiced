@@ -51,7 +51,8 @@ def assert_translation_for_present_reading(person, noun, en, ge):
 
 def assert_translations_for_present_reading_a_book():
     inputs = [
-        (person_marker.I, "I am reading a book", "ვკითხულობ წიგნს")
+        (person_marker.I, "I am reading a book", "ვკითხულობ წიგნს"),
+        (person_marker.YOU, "You are reading a book", "კითხულობ წიგნს")
     ]
 
     for (person, en, ge) in inputs:

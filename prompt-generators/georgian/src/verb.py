@@ -11,7 +11,7 @@ class Verb:
         if person == person_marker.SHE or person == person_marker.HE:
             return self.en_root + "s"
         elif self.present_continuous:
-            return "am " + self.en_root + "ing"
+            return to_be(person) + " " + self.en_root + "ing"
         else:
             return self.en_root
     
@@ -35,3 +35,9 @@ READ = Verb("read", "კითხულობ", True)
 
 def random_verb():
     return random.choice([WRITE, BUILD])
+
+def to_be(person):
+    if person == person_marker.I:
+        return "am"
+    else:
+        return "are"
