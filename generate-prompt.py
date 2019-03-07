@@ -19,14 +19,14 @@ transient_verbs = {
 def random_verb():
     return random.choice(list(transient_verbs.keys()))
 
-def translate_prompt_ge_en():
+def translate_prompt_transient_verb_ge_en():
     verb = random_verb()
     return {
         "prompt": "What is the english for \"" + transient_verbs[verb] + "\"?",
         "answer": verb
     }
 
-def translate_prompt_en_ge():
+def translate_prompt_transient_verb_en_ge():
     verb = random_verb()
     return {
         "prompt": "What is the georgian neutral form for \"" + verb + "\"?",
@@ -34,7 +34,10 @@ def translate_prompt_en_ge():
     }
 
 def translate_prompt():
-    potential_prompts = [translate_prompt_en_ge(), translate_prompt_ge_en()]
+    potential_prompts = [
+        translate_prompt_transient_verb_ge_en(),
+        translate_prompt_transient_verb_en_ge()
+    ]
     return random.choice(potential_prompts)
 
 prompt = translate_prompt()
