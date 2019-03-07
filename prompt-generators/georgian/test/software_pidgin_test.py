@@ -21,7 +21,6 @@ def assert_generates_she_writes_code():
     assert_that(prompt["prompt"]).is_equal_to("Translate \"She writes code\"")
     assert_that(prompt["answer"]).is_equal_to("წერს კოდი")
 
-
 def assert_generates_he_writes_code():
     prompt = translate_prompt_en_ge(person.HE, screeve.PRESENT, verb.WRITE, noun.CODE)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"He writes code\"")
