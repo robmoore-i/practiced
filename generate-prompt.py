@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 
-##### Code
+##### Code #####
 
 import random
 
@@ -39,15 +39,16 @@ def translate_prompt():
 
 prompt = translate_prompt()
 
-##### Tests
+##### Tests #####
 
 from assertpy import assert_that
 
+# Check prompt format
 assert_that(sorted(list(prompt.keys()))).is_equal_to(["answer", "prompt"])
 
+# Check consistency between prompt and answer
 def invert_map(m):
     return {v: k for k, v in m.items()}
-
 
 def assert_either(do_assertion_a, do_assertion_b):
     try:
@@ -60,7 +61,7 @@ assert_either(
     lambda: assert_that(prompt["prompt"]).contains(invert_map(transient_verbs)[prompt["answer"]])
 )
 
-##### Execute
+##### Execute #####
 
 print(prompt)
 exit(0)
