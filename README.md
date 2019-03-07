@@ -26,6 +26,8 @@ Two configurations are in the repository. They are the json files. For example:
 }
 ```
 
+Note that the script paths are from the location of wherever you run `practiced.py` from.
+
 ## Prompt Generator
 
 An _executable script_ (including correct shebang line) which _prints to stdout_ a _string of json_ with two fields: `prompt` and `answer`. For example:
