@@ -1,3 +1,4 @@
+import random
 import person_marker
 
 class Verb:
@@ -27,3 +28,6 @@ class Verb:
 
 WRITE = Verb("write", "წერ")
 BUILD = Verb("build", "აშენებ")
+
+def random_verb():
+    return random.choice([WRITE, BUILD])

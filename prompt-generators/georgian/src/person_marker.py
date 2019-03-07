@@ -1,3 +1,5 @@
+import random
+
 class Person:
     def __init__(self, en):
         self.en = en
@@ -9,3 +11,6 @@ HE = Person("He")
 WE = Person("We")
 YOUS = Person("You")
 THEY = Person("They")
+
+def random_person():
+    return random.choice([I, YOU, SHE, HE, WE, YOUS, THEY])
