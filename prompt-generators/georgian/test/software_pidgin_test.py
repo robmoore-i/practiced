@@ -18,7 +18,8 @@ def assert_translations_for_present_writing_of_code():
         (person_marker.SHE, "She writes code", "წერს კოდს"),
         (person_marker.HE, "He writes code", "წერს კოდს"),
         (person_marker.WE, "We write code", "ვწერთ კოდს"),
-        (person_marker.YOUS, "You write code", "წერთ კოდს")
+        (person_marker.YOUS, "You write code", "წერთ კოდს"),
+        (person_marker.THEY, "They write code", "წერენ კოდს")
     ]
 
     for (person, en, ge) in inputs:

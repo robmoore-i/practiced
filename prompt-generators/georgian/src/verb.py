@@ -19,7 +19,9 @@ class Verb:
             return "წერს"
         elif person == person_marker.WE:
             return "ვწერთ"
-        else:
+        elif person == person_marker.YOUS:
             return "წერთ"
+        else:
+            return "წერენ"
 
 WRITE = Verb()
