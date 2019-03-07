@@ -3,3 +3,4 @@ function run_test() {
 }
 
 run_test test/generate_prompt_test.py
+run_test test/transient_verbs_test.py
