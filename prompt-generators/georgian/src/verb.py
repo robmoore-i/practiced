@@ -5,9 +5,7 @@ class Verb:
         pass
     
     def conjugate_en(self, person):
-        if person == person_marker.I:
-            return "write"
-        elif person == person_marker.YOU:
+        if person == person_marker.I or person == person_marker.YOU or person == person_marker.WE:
             return "write"
         else:
             return "writes"
@@ -17,7 +15,9 @@ class Verb:
             return "ვწერ"
         elif person == person_marker.YOU:
             return "წერ"
-        else:
+        elif person == person_marker.SHE or person == person_marker.HE:
             return "წერს"
+        else:
+            return "ვწერთ"
 
 WRITE = Verb()
