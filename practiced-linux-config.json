@@ -1,7 +1,7 @@
 {
   "harassment-script": "linux-harass.sh",
   "notification-script": "linux-notify.sh",
-  "prompt-generator": "generate-prompt.py",
+  "prompt-generator": "georgian/generate-prompt.py",
   "popup-title": "Practice Time!",
   "time-seconds-between-harassments": 300
 }
