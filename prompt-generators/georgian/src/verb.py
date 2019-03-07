@@ -38,7 +38,7 @@ def random_verb():
 def conjugate_to_be_en(person):
     if person == person_marker.I:
         return "am"
-    elif person == person_marker.YOU:
+    elif person == person_marker.YOU or person == person_marker.WE or person == person_marker.YOUS or person == person_marker.THEY:
         return "are"
     else:
         return "is"
