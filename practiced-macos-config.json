@@ -1,7 +1,7 @@
 {
   "harassment-script": "macos-scripts/macos-harass.sh",
   "notification-script": "macos-scripts/macos-notify.sh",
-  "prompt-generator": "prompt-generators/georgian/generate-prompt.py",
+  "prompt-generator": "prompt-generators/georgian/print_prompt.py",
   "popup-title": "Practice Time!",
   "time-seconds-between-harassments": 300
 }
