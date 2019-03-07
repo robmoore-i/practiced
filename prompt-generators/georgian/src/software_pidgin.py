@@ -1,4 +1,5 @@
 import screeve_form
+from screeve_form import random_screeve
 import noun
 from person_marker import random_person
 from verb import random_verb
@@ -12,7 +13,7 @@ def translate_prompt_en_ge(person, screeve, verb, noun):
     }
 
 def translate_prompt_programming():
-    return translate_prompt_en_ge(random_person(), screeve_form.PRESENT, random_verb(), noun.CODE)
+    return translate_prompt_en_ge(random_person(), random_screeve(), random_verb(), noun.CODE)
 
 software_pidgin_prompt_generators = [
     translate_prompt_programming
