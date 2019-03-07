@@ -14,7 +14,17 @@ You don't need any libraries, although my prompt generator has tests in it, usin
 
 ## Configuration
 
-Two configurations are in the repository. They are the json files. You'll want to change the `prompt-generator` entry.
+Two configurations are in the repository. They are the json files. For example:
+
+```
+{
+  "harassment-script": "linux-scripts/linux-harass.sh",
+  "notification-script": "linux-scripts/linux-notify.sh",
+  "prompt-generator": "prompt-generators/month_lengths/execute_generate_prompt.py",
+  "popup-title": "Practice Time!",
+  "time-seconds-between-harassments": 300
+}
+```
 
 ## Prompt Generator
 
