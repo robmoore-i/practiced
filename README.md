@@ -10,7 +10,7 @@ First you need to configure the tool. With that in mind, here's how you use it o
 python3 practiced.py <practiced config file>
 ```
 
-You don't need any libraries, although my prompt generator has tests in it, using assertpy.
+No external libraries required - it uses OS-specific shell commands instead. I have tested on ubuntu and macos.
 
 ## Configuration
 
