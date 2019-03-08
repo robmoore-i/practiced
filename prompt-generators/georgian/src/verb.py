@@ -1,13 +1,14 @@
 import random
 import person_marker
+import screeve_form
 
 class Verb:
     def __init__(self, en_root, ge_neutral):
         self.en_root = en_root
         self.ge_neutral = ge_neutral
     
-    def conjugate_en(self, person, present_continuous=False):
-        if present_continuous:
+    def conjugate_en(self, person, screeve):
+        if screeve == screeve_form.PRESENT_CONTINUOUS:
             return conjugate_to_be_en(person) + " " + drop_trailing_vowel(self.en_root) + "ing"
         elif person == person_marker.SHE or person == person_marker.HE:
             return self.en_root + "s"
