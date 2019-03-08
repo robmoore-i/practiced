@@ -9,11 +9,30 @@ from software_pidgin import translate_prompt_en_ge
 
 print(__file__)
 
+# Pre: n > len(s)
+def pad(s, n):
+    return s + (" " * (n - len(s)))
+
+def with_padding(s):
+    return pad(s, 10)
+
+def wrap_sentence_part(s):
+    return "[" + s + "]"
+
+def translation_test_description_part(s):
+    return with_padding(wrap_sentence_part(s))
+
+def print_translation_test_description(person_en, verb_en_root, noun_en):
+    person_part = translation_test_description_part(person_en)
+    verb_part = translation_test_description_part(verb_en_root)
+    noun_part = translation_test_description_part(noun_en)
+    print_test_success(person_part + verb_part + noun_part)
+
 def assert_translation_for_present_programming(verb, person, en, ge):
     prompt = translate_prompt_en_ge(person, screeve_form.PRESENT, verb, noun.CODE)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
     assert_that(prompt["answer"]).is_equal_to(ge)
-    print_test_success("[" + person.en + "]\t[" + verb.en_root + "]\t[code]\t")
+    print_translation_test_description(person.en, verb.en_root, noun.CODE.en)
 
 def assert_translations_for_present_writing_of_code():
     inputs = [
@@ -43,11 +62,11 @@ def assert_translations_for_present_building_of_code():
     for (person, en, ge) in inputs:
         assert_translation_for_present_programming(verb.BUILD, person, en, ge)
 
-def assert_translation_for_present_reading(person, noun, en, ge):
+def assert_translation_for_present_continuous_reading(person, noun, en, ge):
     prompt = translate_prompt_en_ge(person, screeve_form.PRESENT_CONTINUOUS, verb.READ, noun)
     assert_that(prompt["prompt"]).is_equal_to("Translate \"" + en + "\"")
     assert_that(prompt["answer"]).is_equal_to(ge)
-    print_test_success("[" + person.en + "]\t[read]\t[" + noun.en + "]\t")
+    print_translation_test_description(person.en, verb.READ.en_root, noun.en)
 
 def assert_translations_for_present_reading_a_book():
     inputs = [
@@ -61,7 +80,7 @@ def assert_translations_for_present_reading_a_book():
     ]
 
     for (person, en, ge) in inputs:
-        assert_translation_for_present_reading(person, noun.BOOK, en, ge)
+        assert_translation_for_present_continuous_reading(person, noun.BOOK, en, ge)
 
 assert_translations_for_present_writing_of_code()
 assert_translations_for_present_building_of_code()
