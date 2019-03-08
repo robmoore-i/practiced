@@ -23,8 +23,11 @@ content_generator_script = str(config["prompt-generator"])
 def generate_prompt():
     return subprocess.getoutput("./" + content_generator_script)
 
+def parse_prompt(generated_prompt_string):
+    return json.loads(generated_prompt_string.replace("\\\"", "'"))
+
 def harass():
-    prompt = json.loads(generate_prompt())
+    prompt = parse_prompt(generate_prompt())
     text_input_prompt = prompt["prompt"]
     answer = prompt["answer"]
 
