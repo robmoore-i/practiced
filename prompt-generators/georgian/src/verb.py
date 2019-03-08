@@ -9,7 +9,7 @@ class Verb:
     
     def conjugate_en(self, person, screeve):
         if screeve == screeve_form.PRESENT_CONTINUOUS:
-            return conjugate_to_be_en(person) + " " + drop_trailing_vowel(self.en_root) + "ing"
+            return conjugate_to_be_en(person) + " " + drop_trailing_e(self.en_root) + "ing"
         elif person == person_marker.SHE or person == person_marker.HE:
             return self.en_root + "s"
         else:
@@ -44,8 +44,8 @@ def conjugate_to_be_en(person):
     else:
         return "is"
 
-def drop_trailing_vowel(s):
-    if (s[-1] in "aeiou"):
+def drop_trailing_e(s):
+    if (s[-1] == "e"):
         return s[:-1]
     else:
         return s
