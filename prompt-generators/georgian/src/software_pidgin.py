@@ -14,7 +14,3 @@ def translate_prompt_en_ge(person, screeve, verb, noun):
 
 def translate_prompt_programming():
     return translate_prompt_en_ge(random_person(), random_screeve(), random_verb(), noun.CODE)
-
-software_pidgin_prompt_generators = [
-    translate_prompt_programming
-]

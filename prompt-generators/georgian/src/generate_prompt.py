@@ -1,9 +1,9 @@
 import random
-from transient_verbs import transient_verb_prompt_generators, transient_verbs
-from software_pidgin import software_pidgin_prompt_generators
+from transient_verbs import translate_prompt_transient_verb
+from software_pidgin import translate_prompt_programming
 
 def generate_prompt():
-    prompt_generators = software_pidgin_prompt_generators
+    prompt_generators = [translate_prompt_transient_verb, translate_prompt_programming]
     prompt_generator = random.choice(prompt_generators)
     return prompt_generator()
 

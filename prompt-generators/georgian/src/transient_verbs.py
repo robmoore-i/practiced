@@ -30,7 +30,8 @@ def translate_prompt_transient_verb_en_ge():
         "answer": transient_verbs[verb]
     }
 
-transient_verb_prompt_generators = [
-    translate_prompt_transient_verb_ge_en,
-    translate_prompt_transient_verb_en_ge
-]
+def translate_prompt_transient_verb():
+    return random.choice([
+        translate_prompt_transient_verb_ge_en,
+        translate_prompt_transient_verb_en_ge
+    ])()
