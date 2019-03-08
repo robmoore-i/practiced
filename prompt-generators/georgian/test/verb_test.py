@@ -7,8 +7,8 @@ import screeve_form
 
 print(__file__)
 
-def assert_drops_trailing_vowel_for_present_continuous_verbs():
+def assert_drops_trailing_e_for_present_continuous_verbs():
     assert_that(verb.WRITE.conjugate_en(person_marker.I, screeve_form.PRESENT_CONTINUOUS)).is_equal_to("am writing")
-    print_test_success("Drops trailing vowel for present continuous verbs")
+    print_test_success("Drops trailing 'e' for present continuous verbs")
 
-assert_drops_trailing_vowel_for_present_continuous_verbs()
+assert_drops_trailing_e_for_present_continuous_verbs()
