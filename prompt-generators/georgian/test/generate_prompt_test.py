@@ -38,6 +38,19 @@ def fuzz_assert_printed_output_is_valid_stringified_json():
     
     print_test_success("Printed json output can be loaded into a python dictionary")
 
+def assert_single_quotes_are_protected():
+    prompt = {
+        "prompt": "როგორაა ქართულად \"I don't know\"?",
+        "answer": "არ ვიცი"
+    }
+
+    actual = prompt_text(prompt)
+    expected = "{\"prompt\": \"როგორაა ქართულად \\\"I don't know\\\"?\", \"answer\": \"არ ვიცი\"}"
+
+    assert_that(actual).is_equal_to(expected)
+    print_test_success("Single quotes in the prompt are protected")
+
 fuzz_assert_prompt_has_correct_json_format()
 fuzz_assert_prompt_values_have_correct_type()
 fuzz_assert_printed_output_is_valid_stringified_json()
+assert_single_quotes_are_protected()

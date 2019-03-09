@@ -8,7 +8,7 @@ def generate_prompt():
     return prompt_generator()
 
 def prompt_text(prompt):
-    return str(prompt).replace("\"", "\\\"").replace("'", "\"")
+    return str(prompt).replace("\"", "\\\"").replace("\\\'", "^").replace("'", "\"").replace("^", "\'")
 
 def get_printed_output():
     return prompt_text(generate_prompt())
