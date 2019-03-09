@@ -20,7 +20,7 @@ def translate_prompt_read_book():
 
 def translate_prompt_consultant_phrase():
     phrases = {
-        "It depends": "გააჩნის",
+        "It depends": "გააჩნია",
         "What does it cost?": "რა ღირს",
         "I don't know": "არ ვიცი",
         "I don't understand": "არ მესმის",
