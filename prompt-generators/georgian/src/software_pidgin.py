@@ -18,5 +18,5 @@ def translate_prompt_code():
 def translate_prompt_read_book():
     return translate_prompt_en_ge(random_person(), random_screeve(), verb.READ, noun.BOOK)
 
-def translate_prompt_programming():
+def translate_prompt_software():
     return random.choice([translate_prompt_code, translate_prompt_read_book])()
