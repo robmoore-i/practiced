@@ -10,7 +10,8 @@ transient_verbs = {
     "work": "მუშაობ",
     "write": "წერ",
     "see": "ხედავ",
-    "read": "კითხულობ"
+    "read": "კითხულობ",
+    "sell": "ყიდი"
 }
 
 def random_verb():
