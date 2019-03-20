@@ -27,7 +27,6 @@ def translate_prompt_consultant_phrase():
         "I agree with you": "გეთანხმებით",
         "I think so": "ასე ვფიქრობ",
         "I like it": "მომწონს",
-        "Please don't": "არა რა",
         "I prefer it": "მირჩევნია"
     }
 
@@ -39,4 +38,4 @@ def translate_prompt_consultant_phrase():
     }
 
 def translate_prompt_software():
-    return random.choice([translate_prompt_code, translate_prompt_read_book, translate_prompt_consultant_phrase])()
+    return random.choice([translate_prompt_consultant_phrase])()
