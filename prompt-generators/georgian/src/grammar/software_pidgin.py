@@ -1,7 +1,7 @@
 import random
 
-import grammar.noun
-import grammar.verb
+import grammar.noun as noun
+import grammar.verb as verb
 from grammar.screeve_form import random_screeve
 from grammar.person_marker import random_person
 
