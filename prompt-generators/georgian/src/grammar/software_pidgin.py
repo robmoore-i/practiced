@@ -18,25 +18,3 @@ def translate_prompt_code():
 # anyone | read | book
 def translate_prompt_read_book():
     return translate_prompt_en_ge(random_person(), random_screeve(), verb.READ, noun.BOOK)
-
-def translate_prompt_consultant_phrase():
-    phrases = {
-        "It depends": "გააჩნია",
-        "What does it cost?": "რა ღირს",
-        "I don't know": "არ ვიცი",
-        "I don't understand": "არ მესმის",
-        "I agree with you": "გეთანხმებით",
-        "I think so": "ასე ვფიქრობ",
-        "I like it": "მომწონს",
-        "I prefer it": "მირჩევნია"
-    }
-
-    random_index = random.choice([i for i in range(0, len(phrases))])
-    (en, ge) = list(phrases.items())[random_index]
-    return {
-        "prompt": "როგორაა ქართულად \"" + en + "\"?",
-        "answer": ge
-    }
-
-def translate_prompt_software():
-    return random.choice([translate_prompt_consultant_phrase])()
