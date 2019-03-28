@@ -1,6 +1,7 @@
 import random
-import person_marker
-import screeve_form
+
+import grammar.person_marker as person_marker
+import grammar.screeve_form as screeve_form
 
 class Verb:
     def __init__(self, en_root, ge_neutral):

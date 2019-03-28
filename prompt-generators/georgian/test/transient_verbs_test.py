@@ -1,6 +1,6 @@
 from assertpy import assert_that
 from tick import print_test_success
-from transient_verbs import transient_verbs, translate_prompt_transient_verb_ge_en, translate_prompt_transient_verb_en_ge
+from vocab.transient_verbs import transient_verbs, translate_prompt_transient_verb_ge_en, translate_prompt_transient_verb_en_ge
 
 print(__file__)
 

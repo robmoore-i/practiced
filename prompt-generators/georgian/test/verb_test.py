@@ -1,9 +1,9 @@
 from assertpy import assert_that
 
 from tick import print_test_success
-import verb
-import person_marker
-import screeve_form
+import grammar.verb as verb
+import grammar.person_marker as person_marker
+import grammar.screeve_form as screeve_form
 
 print(__file__)
 

@@ -1,8 +1,9 @@
 import random
-import noun
-import verb
-from screeve_form import random_screeve
-from person_marker import random_person
+
+import grammar.noun
+import grammar.verb
+from grammar.screeve_form import random_screeve
+from grammar.person_marker import random_person
 
 def translate_prompt_en_ge(person, screeve, verb, noun):
     return {
