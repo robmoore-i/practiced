@@ -3,6 +3,10 @@ import time
 import json
 import sys
 
+if len(sys.argv) != 2:
+    print("USAGE: python3 practiced.py <config file>")
+    exit(1)
+
 config_filename = sys.argv[1]
 
 config = {}
