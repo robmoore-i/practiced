@@ -11,7 +11,7 @@ phrases = {
     "I prefer it": "მირჩევნია"
 }
 
-phrase_prompter = VocabPrompter(phrases, "How do you say in english", "როგორაა ქართულად")
+phrase_prompter = VocabPrompter("How do you say in english", "როგორაა ქართულად", vocab_list=phrases)
 
 def translate_prompt_phrase():
     return phrase_prompter.translate_prompt()

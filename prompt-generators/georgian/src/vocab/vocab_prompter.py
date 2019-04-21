@@ -1,7 +1,7 @@
 import random
 
 class VocabPrompter:
-    def __init__(self, vocab_list, keyside_question, valueside_question):
+    def __init__(self, keyside_question, valueside_question, vocab_list):
         self.vocab_list = vocab_list
         self.keyside_question = keyside_question
         self.valueside_question = valueside_question

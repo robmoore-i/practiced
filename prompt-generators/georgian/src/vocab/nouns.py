@@ -96,7 +96,7 @@ nouns = {
     "turtle": "კუ"
 }
 
-noun_prompter = VocabPrompter(nouns, "What is the georgian noun", "What is the english noun")
+noun_prompter = VocabPrompter("What is the georgian noun", "What is the english noun", vocab_list=nouns)
 
 def translate_prompt_noun():
     return noun_prompter.translate_prompt()

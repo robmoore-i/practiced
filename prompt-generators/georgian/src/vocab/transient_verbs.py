@@ -16,7 +16,7 @@ transient_verbs = {
     "study": "სწავლობ"
 }
 
-transient_verb_prompter = VocabPrompter(transient_verbs, "What is the georgian neutral form for", "What is the english for")
+transient_verb_prompter = VocabPrompter("What is the georgian neutral form for", "What is the english for", vocab_list=transient_verbs)
 
 def translate_prompt_transient_verb():
     return transient_verb_prompter.translate_prompt()

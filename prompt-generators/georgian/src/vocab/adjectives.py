@@ -30,7 +30,7 @@ adjectives = {
     "late": "გვიან"
 }
 
-adjective_prompter = VocabPrompter(adjectives, "What is the georgian adjective", "What is the english adjective")
+adjective_prompter = VocabPrompter("What is the georgian adjective", "What is the english adjective", vocab_list=adjectives)
 
 def translate_prompt_adjective():
     return adjective_prompter.translate_prompt()
