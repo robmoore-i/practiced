@@ -2,9 +2,14 @@ import json
 from assertpy import assert_that
 
 from tick import print_test_success
-from generate_prompt import generate_prompt, prompt_text
+from generate_prompt import PromptGenerator
 
 print(__file__)
+
+test_prompt_generator = PromptGenerator(".")
+
+def generate_prompt():
+    return test_prompt_generator.generate_prompt()
 
 def assert_prompt_has_correct_json_format(prompt):
     assert_that(sorted(list(prompt.keys()))).is_equal_to(["answer", "prompt"])
@@ -27,30 +32,16 @@ def fuzz_assert_prompt_values_have_correct_type():
 
     print_test_success("Prompt fields are all strings")
     
-def assert_printed_output_is_valid_stringified_json(printed_output, prompt):
-    assert_that(json.loads(printed_output)).is_equal_to(prompt)
+def assert_printed_output_is_valid_stringified_json(prompt):
+    assert_that(json.loads(json.dumps(prompt))).is_equal_to(prompt)
     
 def fuzz_assert_printed_output_is_valid_stringified_json():
     for i in range(0, 50):
         prompt = generate_prompt()
-        printed_output = prompt_text(prompt)
-        assert_printed_output_is_valid_stringified_json(printed_output, prompt)
-    
+        assert_printed_output_is_valid_stringified_json(prompt)
+
     print_test_success("Printed json output can be loaded into a python dictionary")
-
-def assert_single_quotes_are_protected():
-    prompt = {
-        "prompt": "როგორაა ქართულად \"I don't know\"?",
-        "answer": "არ ვიცი"
-    }
-
-    actual = prompt_text(prompt)
-    expected = "{\"prompt\": \"როგორაა ქართულად \\\"I don't know\\\"?\", \"answer\": \"არ ვიცი\"}"
-
-    assert_that(actual).is_equal_to(expected)
-    print_test_success("Single quotes in the prompt are protected")
 
 fuzz_assert_prompt_has_correct_json_format()
 fuzz_assert_prompt_values_have_correct_type()
 fuzz_assert_printed_output_is_valid_stringified_json()
-assert_single_quotes_are_protected()

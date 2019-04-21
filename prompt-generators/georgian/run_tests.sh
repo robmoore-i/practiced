@@ -5,7 +5,6 @@ function run_test() {
 set -e
 
 run_test test/generate_prompt_test.py
-run_test test/transient_verbs_test.py
 run_test test/software_pidgin_test.py
 run_test test/verb_test.py
 

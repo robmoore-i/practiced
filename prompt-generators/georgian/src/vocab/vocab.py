@@ -9,7 +9,7 @@ class VocabPromptGenerator:
     def vocab_file(self, basename):
         return os.path.join(self.vocab_list_dir, basename)
 
-    def generate_vocab_prompt(self):
+    def generate_prompt(self):
         noun_prompter = VocabPrompter(
             "What is the georgian noun",
             "What is the english noun",
@@ -36,8 +36,3 @@ class VocabPromptGenerator:
             transient_verb_prompter,
             phrase_prompter
         ]).translate_prompt()
-
-prompt_generator = VocabPromptGenerator("prompt-generators/georgian/src/vocab/vocab_lists")
-
-def generate_vocab_prompt():
-    return prompt_generator.generate_vocab_prompt()
