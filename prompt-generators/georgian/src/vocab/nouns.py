@@ -96,25 +96,19 @@ nouns = {
     "turtle": "კუ"
 }
 
+question_ge_en = "What is the english noun"
+question_en_ge = "What is the georgian noun"
+
 def random_noun():
     return random.choice(list(nouns.keys()))
 
-def translate_prompt_noun_ge_en():
-    noun = random_noun()
-    return {
-        "prompt": "What is the english noun \"" + nouns[noun] + "\"?",
-        "answer": noun
-    }
-
-def translate_prompt_noun_en_ge():
-    noun = random_noun()
-    return {
-        "prompt": "What is the georgian noun \"" + noun + "\"?",
-        "answer": nouns[noun]
-    }
-
 def translate_prompt_noun():
-    return random.choice([
-        translate_prompt_noun_ge_en,
-        translate_prompt_noun_en_ge
-    ])()
+    noun = random_noun()
+    given, answer, question = random.choice([
+        (nouns[noun], noun,        question_ge_en),
+        (noun,        nouns[noun], question_en_ge)
+        ])
+    return {
+        "prompt": question + " \"" + given + "\"?",
+        "answer": answer
+    }
