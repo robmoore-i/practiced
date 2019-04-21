@@ -1,17 +1,9 @@
 from vocab.vocab_prompter import VocabPrompter
 
-phrases = {
-    "It depends": "გააჩნია",
-    "What does it cost?": "რა ღირს",
-    "I don't know": "არ ვიცი",
-    "I don't understand": "არ მესმის",
-    "I agree with you": "გეთანხმებით",
-    "I think so": "ასე ვფიქრობ",
-    "I like it": "მომწონს",
-    "I prefer it": "მირჩევნია"
-}
-
-phrase_prompter = VocabPrompter("How do you say in english", "როგორაა ქართულად", vocab_list=phrases)
+phrase_prompter = VocabPrompter(
+    "How do you say in english",
+    "როგორაა ქართულად",
+    json_file_name="prompt-generators/georgian/src/vocab/vocab_lists/phrases.json")
 
 def translate_prompt_phrase():
     return phrase_prompter.translate_prompt()

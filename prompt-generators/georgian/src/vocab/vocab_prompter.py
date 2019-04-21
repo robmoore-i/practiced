@@ -11,7 +11,7 @@ class VocabPrompter:
 
         self.keyside_question = keyside_question
         self.valueside_question = valueside_question
-    
+
     def random_vocab(self):
         return random.choice(list(self.vocab_list.keys()))
     
