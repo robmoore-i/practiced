@@ -1,4 +1,4 @@
-import random
+from vocab.vocab_prompter import VocabPrompter
 
 phrases = {
     "It depends": "გააჩნია",
@@ -11,10 +11,7 @@ phrases = {
     "I prefer it": "მირჩევნია"
 }
 
+phrase_prompter = VocabPrompter(phrases, "How do you say in english", "როგორაა ქართულად")
+
 def translate_prompt_phrase():
-    random_index = random.choice([i for i in range(0, len(phrases))])
-    (en, ge) = list(phrases.items())[random_index]
-    return {
-        "prompt": "როგორაა ქართულად \"" + en + "\"?",
-        "answer": ge
-    }
+    return phrase_prompter.translate_prompt()
