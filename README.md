@@ -30,7 +30,8 @@ Note that the script paths are from the location of wherever you run `practiced.
 
 ## Prompt Generator
 
-An _executable script_ (including correct shebang line) which _prints to stdout_ a _string of json_ with two fields: `prompt` and `answer`. For example:
+An _executable script_ (including correct shebang line) which _prints to stdout_ a _string of json_ with two fields: `prompt` and `answer` _when run from the top
+level directory_. For example:
 
 ```
 Rob-Computer:practiced rob$ ./prompt-generators/georgian/src/print_prompt.py
