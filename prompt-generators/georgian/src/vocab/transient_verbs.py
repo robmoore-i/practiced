@@ -1,4 +1,4 @@
-import random
+from vocab.vocab_prompter import VocabPrompter
 
 transient_verbs = {
     "help": "ეხმარებ",
@@ -16,25 +16,7 @@ transient_verbs = {
     "study": "სწავლობ"
 }
 
-def random_verb():
-    return random.choice(list(transient_verbs.keys()))
-
-def translate_prompt_transient_verb_ge_en():
-    verb = random_verb()
-    return {
-        "prompt": "What is the english for \"" + transient_verbs[verb] + "\"?",
-        "answer": verb
-    }
-
-def translate_prompt_transient_verb_en_ge():
-    verb = random_verb()
-    return {
-        "prompt": "What is the georgian neutral form for \"" + verb + "\"?",
-        "answer": transient_verbs[verb]
-    }
+transient_verb_prompter = VocabPrompter(transient_verbs, "What is the georgian neutral form for", "What is the english for")
 
 def translate_prompt_transient_verb():
-    return random.choice([
-        translate_prompt_transient_verb_ge_en,
-        translate_prompt_transient_verb_en_ge
-    ])()
+    return transient_verb_prompter.translate_prompt()

@@ -1,4 +1,4 @@
-import random
+from vocab.vocab_prompter import VocabPrompter
 
 adjectives = {
     "good": "კარგი",
@@ -30,25 +30,7 @@ adjectives = {
     "late": "გვიან"
 }
 
-def random_adjective():
-    return random.choice(list(adjectives.keys()))
-
-def translate_prompt_adjective_ge_en():
-    adjective = random_adjective()
-    return {
-        "prompt": "What is the english adjective \"" + adjectives[adjective] + "\"?",
-        "answer": adjective
-    }
-
-def translate_prompt_adjective_en_ge():
-    adjective = random_adjective()
-    return {
-        "prompt": "What is the georgian adjective \"" + adjective + "\"?",
-        "answer": adjectives[adjective]
-    }
+adjective_prompter = VocabPrompter(adjectives, "What is the georgian adjective", "What is the english adjective")
 
 def translate_prompt_adjective():
-    return random.choice([
-        translate_prompt_adjective_ge_en,
-        translate_prompt_adjective_en_ge
-    ])()
+    return adjective_prompter.translate_prompt()
