@@ -28,6 +28,7 @@ def generate_prompt():
     return subprocess.getoutput("./" + content_generator_script)
 
 def parse_prompt(generated_prompt_string):
+    print("Parsing prompt: " + generated_prompt_string)
     return json.loads(generated_prompt_string.replace("\\\"", "'"))
 
 def harass():

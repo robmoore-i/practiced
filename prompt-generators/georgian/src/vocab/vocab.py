@@ -1,14 +1,30 @@
 import random
+from vocab.vocab_prompter import VocabPrompter
 
-from vocab.transient_verbs import translate_prompt_transient_verb
-from vocab.phrases import translate_prompt_phrase
-from vocab.nouns import translate_prompt_noun
-from vocab.adjectives import translate_prompt_adjective
+noun_prompter = VocabPrompter(
+    "What is the georgian noun",
+    "What is the english noun",
+    json_file_name="prompt-generators/georgian/src/vocab/vocab_lists/nouns.json")
+
+adjective_prompter = VocabPrompter(
+    "What is the georgian adjective",
+    "What is the english adjective",
+    json_file_name="prompt-generators/georgian/src/vocab/vocab_lists/adjectives.json")
+
+transient_verb_prompter = VocabPrompter(
+    "What is the georgian neutral form for",
+    "What is the english for",
+    json_file_name="prompt-generators/georgian/src/vocab/vocab_lists/transient_verbs.json")
+
+phrase_prompter = VocabPrompter(
+    "How do you say in english",
+    "როგორაა ქართულად",
+    json_file_name="prompt-generators/georgian/src/vocab/vocab_lists/phrases.json")
 
 def generate_vocab_prompt():
     return random.choice([
-        translate_prompt_transient_verb,
-        translate_prompt_phrase,
-        translate_prompt_noun,
-        translate_prompt_adjective
-    ])()
+        noun_prompter,
+        adjective_prompter,
+        transient_verb_prompter,
+        phrase_prompter
+    ]).translate_prompt()
