@@ -6,9 +6,10 @@ from vocab.nouns import translate_prompt_noun
 from vocab.adjectives import translate_prompt_adjective
 
 def generate_vocab_prompt():
-    return random.choice([
-        translate_prompt_transient_verb,
-        translate_prompt_phrase,
-        translate_prompt_noun,
-        translate_prompt_adjective
-    ])()
+    return translate_prompt_noun()
+    # return random.choice([
+    #     translate_prompt_transient_verb,
+    #     translate_prompt_phrase,
+    #     translate_prompt_noun,
+    #     translate_prompt_adjective
+    # ])()
