@@ -2,12 +2,9 @@ import random
 import json
 
 class VocabPrompter:
-    def __init__(self, keyside_question, valueside_question, vocab_list=None, json_file_name=None):
-        if (json_file_name != None):
-            with open(json_file_name, "r") as vocab_file:
+    def __init__(self, keyside_question, valueside_question, json_file_name):
+        with open(json_file_name, "r") as vocab_file:
                 self.vocab_list = json.loads(vocab_file.read())
-        else:
-            self.vocab_list = vocab_list
 
         self.keyside_question = keyside_question
         self.valueside_question = valueside_question
