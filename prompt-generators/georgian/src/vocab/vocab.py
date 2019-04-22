@@ -10,10 +10,12 @@ class VocabPromptGenerator:
         return os.path.join(self.vocab_list_dir, basename)
     
     def noun_prompter(self, noun_type):
+        vocab_file_basename = "nouns_" + noun_type + ".json"
+        vocab_file_path = self.vocab_file(vocab_file_basename)
         return VocabPrompter(
             "What is the georgian noun",
             "What is the english noun",
-            json_file_name=self.vocab_file("nouns_" + noun_type + ".json"))
+            json_file_name=vocab_file_path)
 
     def generate_prompt(self):
         adjective_prompter = VocabPrompter(
