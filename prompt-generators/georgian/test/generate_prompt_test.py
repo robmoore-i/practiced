@@ -8,6 +8,8 @@ print(__file__)
 
 test_prompt_generator = PromptGenerator(".")
 
+fuzz_size = 200
+
 def generate_prompt():
     return test_prompt_generator.generate_prompt()
 
@@ -15,7 +17,7 @@ def assert_prompt_has_correct_json_format(prompt):
     assert_that(sorted(list(prompt.keys()))).is_equal_to(["answer", "prompt"])
 
 def fuzz_assert_prompt_has_correct_json_format():
-    for i in range(0, 50):
+    for i in range(0, fuzz_size):
         prompt = generate_prompt()
         assert_prompt_has_correct_json_format(prompt)
 
@@ -26,7 +28,7 @@ def assert_prompt_values_have_correct_type(prompt):
     assert_that(prompt["answer"]).is_type_of(str)
 
 def fuzz_assert_prompt_values_have_correct_type():
-    for i in range(0, 50):
+    for i in range(0, fuzz_size):
         prompt = generate_prompt()
         assert_prompt_values_have_correct_type(prompt)
 
@@ -36,7 +38,7 @@ def assert_printed_output_is_valid_stringified_json(prompt):
     assert_that(json.loads(json.dumps(prompt))).is_equal_to(prompt)
     
 def fuzz_assert_printed_output_is_valid_stringified_json():
-    for i in range(0, 50):
+    for i in range(0, fuzz_size):
         prompt = generate_prompt()
         assert_printed_output_is_valid_stringified_json(prompt)
 
