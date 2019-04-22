@@ -38,6 +38,7 @@ class VocabPromptGenerator:
             self.noun_prompter("time"),
             self.noun_prompter("food_and_drink"),
             self.noun_prompter("animals"),
+            self.noun_prompter("nations"),
             adjective_prompter,
             transient_verb_prompter,
             phrase_prompter
