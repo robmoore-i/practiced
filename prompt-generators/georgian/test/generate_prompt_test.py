@@ -8,7 +8,7 @@ print(__file__)
 
 test_prompt_generator = PromptGenerator(".")
 
-fuzz_size = 200
+fuzz_size = 1000
 
 def generate_prompt():
     return test_prompt_generator.generate_prompt()
