@@ -14,6 +14,11 @@ class VocabPromptGenerator:
             "What is the georgian noun",
             "What is the english noun",
             json_file_name=self.vocab_file("nouns.json"))
+        
+        nouns_time_prompter = VocabPrompter(
+            "What is the georgian noun",
+            "What is the english noun",
+            json_file_name=self.vocab_file("nouns_time.json"))
 
         adjective_prompter = VocabPrompter(
             "What is the georgian adjective",
@@ -32,6 +37,7 @@ class VocabPromptGenerator:
 
         return random.choice([
             noun_prompter,
+            nouns_time_prompter,
             adjective_prompter,
             transient_verb_prompter,
             phrase_prompter
