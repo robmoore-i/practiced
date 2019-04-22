@@ -8,28 +8,14 @@ class VocabPromptGenerator:
 
     def vocab_file(self, basename):
         return os.path.join(self.vocab_list_dir, basename)
+    
+    def noun_prompter(self, noun_type):
+        return VocabPrompter(
+            "What is the georgian noun",
+            "What is the english noun",
+            json_file_name=self.vocab_file("nouns_" + noun_type + ".json"))
 
     def generate_prompt(self):
-        noun_prompter = VocabPrompter(
-            "What is the georgian noun",
-            "What is the english noun",
-            json_file_name=self.vocab_file("nouns.json"))
-        
-        nouns_time_prompter = VocabPrompter(
-            "What is the georgian noun",
-            "What is the english noun",
-            json_file_name=self.vocab_file("nouns_time.json"))
-
-        nouns_food_and_drink_prompter = VocabPrompter(
-            "What is the georgian noun",
-            "What is the english noun",
-            json_file_name=self.vocab_file("nouns_food_and_drink.json"))
-
-        nouns_animals_prompter = VocabPrompter(
-            "What is the georgian noun",
-            "What is the english noun",
-            json_file_name=self.vocab_file("nouns_animals.json"))
-
         adjective_prompter = VocabPrompter(
             "What is the georgian adjective",
             "What is the english adjective",
@@ -46,10 +32,10 @@ class VocabPromptGenerator:
             json_file_name=self.vocab_file("phrases.json"))
 
         return random.choice([
-            noun_prompter,
-            nouns_time_prompter,
-            nouns_food_and_drink_prompter,
-            nouns_animals_prompter,
+            self.noun_prompter("general"),
+            self.noun_prompter("time"),
+            self.noun_prompter("food_and_drink"),
+            self.noun_prompter("animals"),
             adjective_prompter,
             transient_verb_prompter,
             phrase_prompter
