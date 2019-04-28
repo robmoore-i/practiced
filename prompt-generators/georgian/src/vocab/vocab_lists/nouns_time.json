@@ -6,5 +6,9 @@
     "morning": "დილა",
     "afternoon": "შუადღე",
     "evening": "საღამო",
-    "night": "რამე"
+    "night": "რამე",
+    "spring": "გაზაფხული",
+    "summer": "ზაფხული",
+    "autumn": "შემოდგომა",
+    "winter": "ზამთარი"
 }
