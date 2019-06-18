@@ -1,11 +1,11 @@
 from assertpy import assert_that
 
 from tick import print_test_success
-import person_marker
-import screeve_form
-import verb
-import noun
-from software_pidgin import translate_prompt_en_ge
+import grammar.person_marker as person_marker
+import grammar.screeve_form as screeve_form
+import grammar.verb as verb
+import grammar.noun as noun
+from grammar.software_pidgin import translate_prompt_en_ge
 
 print(__file__)
 

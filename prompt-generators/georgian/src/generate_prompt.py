@@ -1,14 +1,13 @@
+import json
 import random
-from transient_verbs import translate_prompt_transient_verb
-from software_pidgin import translate_prompt_software
+from vocab.vocab import VocabPromptGenerator
 
-def generate_prompt():
-    prompt_generators = [translate_prompt_transient_verb, translate_prompt_software]
-    prompt_generator = random.choice(prompt_generators)
-    return prompt_generator()
+class PromptGenerator:
+    def __init__(self, georgian_dir):
+        self.vocab_prompt_generator = VocabPromptGenerator(georgian_dir + "/src/vocab/vocab_lists")
+    
+    def generate_prompt(self):
+        return self.vocab_prompt_generator.generate_prompt()
 
-def prompt_text(prompt):
-    return str(prompt).replace("\"", "\\\"").replace("\\\'", "^").replace("'", "\"").replace("^", "\'")
-
-def get_printed_output():
-    return prompt_text(generate_prompt())
+    def get_printed_output(self):
+        return json.dumps(self.generate_prompt())
