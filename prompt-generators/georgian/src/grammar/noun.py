@@ -6,5 +6,6 @@ class Noun:
     def accusative_ge(self):
         return self.ge[:-1] + "ს"
 
+
 CODE = Noun("code", "კოდი")
 BOOK = Noun("a book", "წიგნი")

@@ -2,13 +2,14 @@ import os
 import random
 from vocab.vocab_prompter import VocabPrompter
 
+
 class VocabPromptGenerator:
     def __init__(self, vocab_list_dir):
         self.vocab_list_dir = vocab_list_dir
 
     def vocab_file(self, basename):
         return os.path.join(self.vocab_list_dir, basename)
-    
+
     def noun_prompter(self, noun_type):
         vocab_file_basename = "nouns_" + noun_type + ".json"
         vocab_file_path = self.vocab_file(vocab_file_basename)
