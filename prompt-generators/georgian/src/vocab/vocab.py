@@ -46,7 +46,8 @@ class VocabPromptGenerator:
             self.noun_prompter("nations")
         ]
         verb_prompters = [
-            self.verb_prompter("transient")
+            self.verb_prompter("transient"),
+            self.verb_prompter("medial"),
         ]
         other_prompters = [
             phrase_prompter,
