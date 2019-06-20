@@ -42,3 +42,15 @@ Rob-Computer:practiced rob$
 ## Writing a prompt generator
 
 With the specification above in mind, I have a couple of python examples. One for Georgian language, another for the lengths of the different months of the year. These live in `prompt-generators/`. To create a simple given->answer mapping, basically just copy the one for month-lengths and add everything you want into the dictionary.
+
+## Wish list
+
+- I want to generify my existing prompt-generator for Georgian into one for all languages. Expected difficulty: easy.
+
+- I want to adjust the entry point of the program to be more user friendly. Config files piss me off. Expected difficulty: pips.
+
+- I want to be able to interleave multiple prompt generators, so that I can learn Georgian and the lengths of the months at the same time. Expected difficulty: tricky.
+
+- I want to have an implementation of the VocabPrompter interface which can combine multiple json files from the vocab lists. Expected difficulty: easy.
+
+- I want to be able to specify the vocab lists I want to use from the entry point of the program, rather than fucking with code before running it. Expected difficulty: fine.
