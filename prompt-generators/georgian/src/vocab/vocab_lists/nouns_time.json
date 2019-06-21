@@ -1,14 +1,14 @@
 {
-    "day": "დღე",
-    "today": "დღეს",
-    "yesterday": "გუშინ",
-    "tomorrow": "ხვალ",
-    "morning": "დილა",
-    "afternoon": "შუადღე",
-    "evening": "საღამო",
-    "night": "რამე",
-    "spring": "გაზაფხული",
-    "summer": "ზაფხული",
-    "autumn": "შემოდგომა",
-    "winter": "ზამთარი"
+  "day": "დღე",
+  "today": "დღეს",
+  "yesterday": "გუშინ",
+  "tomorrow": "ხვალ",
+  "morning": "დილა",
+  "afternoon": "შუადღე",
+  "evening": "საღამო",
+  "night": "რამე",
+  "spring": "გაზაფხული",
+  "summer": "ზაფხული",
+  "autumn": "შემოდგომა",
+  "winter": "ზამთარი"
 }

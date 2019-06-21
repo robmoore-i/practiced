@@ -43,7 +43,8 @@ class VocabPromptGenerator:
             self.noun_prompter("time"),
             self.noun_prompter("food_and_drink"),
             self.noun_prompter("animals"),
-            self.noun_prompter("nations")
+            self.noun_prompter("nations"),
+            self.noun_prompter("places")
         ]
         verb_prompters = [
             self.verb_prompter("transient"),
